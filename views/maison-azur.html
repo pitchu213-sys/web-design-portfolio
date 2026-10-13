@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Azur — Guesthouse de Prestige sur la Côte d'Azur | Concept Fictif</title>
+  <meta name="description" content="Concept de site web pour Maison Azur, maison d'hôtes de prestige sur la Côte d'Azur. Démonstration de design web de luxe silencieux.">
+  <link rel="stylesheet" href="/css/maison-azur.css">
+</head>
+<body class="concept-azur">
+
+  <!-- Bandeau transversal portfolio showcase -->
+  <aside class="portfolio-return-bar" aria-label="Navigation Portfolio">
+    <div>
+      <a href="/">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Retour au Portfolio Central</span>
+      </a>
+    </div>
+    <div class="concept-badge-indicator">
+      <span>Concept 1 / 3 • <strong>Hôtellerie de Luxe</strong> (Fictif)</span>
+      <span style="opacity: 0.4;">|</span>
+      <a href="/maison-du-gout" style="color: #94a3b8; font-weight: 500;">Suivant : Maison du Goût →</a>
+    </div>
+  </aside>
+
+  <!-- En-tête officiel Maison Azur -->
+  <header class="azur-header">
+    <div class="azur-nav-container">
+      <a href="#accueil" class="azur-brand">
+        <span class="azur-logo-title">Maison Azur</span>
+        <span class="azur-logo-sub">Presqu'île de Saint-Jean • Côte d'Azur</span>
+      </a>
+
+      <nav>
+        <ul class="azur-nav-menu">
+          <li><a href="#accueil" class="azur-nav-link">Accueil</a></li>
+          <li><a href="#domaine" class="azur-nav-link">Le Domaine</a></li>
+          <li><a href="#suites" class="azur-nav-link">Suites & Pavillons</a></li>
+          <li><a href="#experiences" class="azur-nav-link">Art de Vivre</a></li>
+          <li><a href="#contact" class="azur-nav-link">Conciergerie</a></li>
+        </ul>
+      </nav>
+
+      <a href="#suites" class="btn-azur-reserve">Réserver un séjour</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section Héro -->
+    <section id="accueil" class="azur-hero">
+      <div class="azur-hero-content">
+        <p class="azur-hero-tagline">
+          <span>✦</span> Sanctuaire Privilégié au Bord des Flots <span>✦</span>
+        </p>
+        <h1 class="azur-hero-title">
+          L'art de vivre suspendu entre <em>ciel et Méditerranée.</em>
+        </h1>
+        <p class="azur-hero-desc">
+          Nichée à flanc de falaise dans une oliveraie séculaire, la Maison Azur vous ouvre les portes d'une retraite confidentielle de six suites panoramiques d'exception.
+        </p>
+        <a href="#suites" class="azur-hero-cta">Explorer nos suites</a>
+      </div>
+    </section>
+
+    <!-- Simulateur de Réservation Flottant -->
+    <div class="booking-bar-wrapper">
+      <div class="booking-bar-card">
+        <div class="booking-field">
+          <span class="booking-label">Arrivée & Départ</span>
+          <select class="booking-select" id="azur-stay-dates">
+            <option>15 Juin — 22 Juin 2026</option>
+            <option>01 Juillet — 08 Juillet 2026</option>
+            <option>18 Août — 25 Août 2026</option>
+            <option>10 Septembre — 17 Septembre 2026</option>
+          </select>
+        </div>
+
+        <div class="booking-field">
+          <span class="booking-label">Voyageurs</span>
+          <select class="booking-select" id="azur-stay-guests">
+            <option>2 Adultes (Séjour Intimiste)</option>
+            <option>4 Adultes (Pavillon Privatisé)</option>
+            <option>Privatisation Intégrale du Domaine</option>
+          </select>
+        </div>
+
+        <div class="booking-field">
+          <span class="booking-label">Résidence souhaitée</span>
+          <select class="booking-select" id="azur-stay-suite">
+            <option value="horizon">Suite Horizon Azur (75 m²)</option>
+            <option value="pins">Pavillon des Pins (90 m²)</option>
+            <option value="villa">Villa Calanque Secrète (140 m²)</option>
+          </select>
+        </div>
+
+        <div class="booking-field" style="border: none;">
+          <span class="booking-label">Expérience Dédiée</span>
+          <span style="font-size: 0.92rem; font-weight: 600; color: var(--azur-coastal);">Petit-déjeuner & Majordome inclus</span>
+        </div>
+
+        <button type="button" class="btn-check-availability" id="btn-check-azur">Vérifier Disponibilité</button>
+
+        <div class="booking-feedback-msg" id="azur-feedback">
+          ✨ <strong>Disponibilité confirmée</strong> pour cette période. Tarif estimé : à partir de 950 € / nuitée. (Simulation conceptuelle fictive).
+        </div>
+      </div>
+    </div>
+
+    <!-- Bandeau Spécifications Design (Notice Portfolio) -->
+    <div class="concept-blueprint-bar">
+      <div class="blueprint-container">
+        <div class="blueprint-box">
+          <div class="blueprint-label">Direction Artistique</div>
+          <div class="blueprint-value">Luxe Silencieux & Minéral</div>
+          <div class="blueprint-sub">Inspiration riviera, lumière naturelle</div>
+        </div>
+        <div class="blueprint-box">
+          <div class="blueprint-label">Typographie</div>
+          <div class="blueprint-value">Cormorant Garamond</div>
+          <div class="blueprint-sub">& Plus Jakarta Sans pour le corps</div>
+        </div>
+        <div class="blueprint-box">
+          <div class="blueprint-label">Palette Chromatique</div>
+          <div class="blueprint-value">Bleu Profond & Or Calcaire</div>
+          <div class="blueprint-sub">#071724, #245B91, #C5A880</div>
+        </div>
+        <div class="blueprint-box">
+          <div class="blueprint-label">Composants Clés</div>
+          <div class="blueprint-value">Single-Page Immersive</div>
+          <div class="blueprint-sub">Simulateur de disponibilité réactif</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Le Domaine -->
+    <section id="domaine" class="azur-section">
+      <div class="azur-section-header">
+        <span class="azur-section-subtitle">L'Écrin Méditerranéen</span>
+        <h2 class="azur-section-title">Une Histoire Minérale & Solaire</h2>
+        <p style="color: var(--azur-muted); font-size: 1.1rem; line-height: 1.7;">
+          Bâtie sur d'anciennes restanques de pierre calcaire, la Maison Azur réinvente la villégiature côtière. Un équilibre parfait entre l'épure contemporaine et la douceur intemporelle des jardins de myrtes, d'oliviers et de cyprès centenaires.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section Suites & Pavillons -->
+    <section id="suites" class="azur-section" style="background: #fdfbf7;">
+      <div class="azur-section-header">
+        <span class="azur-section-subtitle">Résidences d'Auteur</span>
+        <h2 class="azur-section-title">Nos Suites Face au Grand Bleu</h2>
+        <p style="color: var(--azur-muted); font-size: 1.1rem;">
+          Chaque espace a été agencé pour laisser la part belle aux panoramas marins, aux matières nobles et à une intimité absolue.
+        </p>
+      </div>
+
+      <div class="azur-grid-suites">
+        <!-- Suite 1 -->
+        <article class="suite-card">
+          <div class="suite-img-container">
+            <span class="suite-badge">Vue Mer Panoramique</span>
+            <img 
+              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" 
+              alt="Suite Horizon Azur" 
+              class="suite-img"
+              loading="lazy"
+            >
+          </div>
+          <div class="suite-body">
+            <h3 class="suite-title">Suite Horizon Azur</h3>
+            <p class="suite-desc">Terrasse privée suspendue de 45 m², lit king-size en lin biologique et bain à débordement extérieur taillé dans la roche.</p>
+            
+            <div class="suite-amenities">
+              <span class="amenity-tag">75 m²</span>
+              <span class="amenity-tag">Vue Cap Ferrat</span>
+              <span class="amenity-tag">Bain extérieur</span>
+            </div>
+
+            <div class="suite-meta">
+              <span>Capacité : 2 Hôtes</span>
+              <span class="suite-price">Dès 950 € / nuit</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Suite 2 -->
+        <article class="suite-card">
+          <div class="suite-img-container">
+            <span class="suite-badge">Sanctuaire Végétal</span>
+            <img 
+              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" 
+              alt="Pavillon des Pins" 
+              class="suite-img"
+              loading="lazy"
+            >
+          </div>
+          <div class="suite-body">
+            <h3 class="suite-title">Pavillon des Pins</h3>
+            <p class="suite-desc">Abrité sous la pinède avec accès exclusif à la crique privée. Salon d'hiver vitré et cheminée contemporaine en pierre locale.</p>
+            
+            <div class="suite-amenities">
+              <span class="amenity-tag">90 m²</span>
+              <span class="amenity-tag">Accès Crique</span>
+              <span class="amenity-tag">Jardin Privé</span>
+            </div>
+
+            <div class="suite-meta">
+              <span>Capacité : 2 à 4 Hôtes</span>
+              <span class="suite-price">Dès 1 350 € / nuit</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Suite 3 -->
+        <article class="suite-card">
+          <div class="suite-img-container">
+            <span class="suite-badge">Résidence Signature</span>
+            <img 
+              src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" 
+              alt="Villa Calanque Secrète" 
+              class="suite-img"
+              loading="lazy"
+            >
+          </div>
+          <div class="suite-body">
+            <h3 class="suite-title">Villa Calanque Secrète</h3>
+            <p class="suite-desc">Piscine privée en pierre de Bali de 12 mètres, double suite parentale et service personnalisé de conciergerie 24h/24.</p>
+            
+            <div class="suite-amenities">
+              <span class="amenity-tag">140 m²</span>
+              <span class="amenity-tag">Piscine Privée</span>
+              <span class="amenity-tag">Majordome Dédié</span>
+            </div>
+
+            <div class="suite-meta">
+              <span>Capacité : 4 Hôtes</span>
+              <span class="suite-price">Dès 2 200 € / nuit</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section Art de Vivre & Expériences -->
+    <section id="experiences" class="azur-section">
+      <div class="azur-section-header">
+        <span class="azur-section-subtitle">Moments Suspendus</span>
+        <h2 class="azur-section-title">L'Art de Vivre en Partage</h2>
+        <p style="color: var(--azur-muted); font-size: 1.1rem;">
+          Des attentions pensées pour sublimer chaque heure de votre séjour sur la Riviera.
+        </p>
+      </div>
+
+      <div class="experiences-grid">
+        <div class="experience-card">
+          <div class="exp-icon">⛵</div>
+          <h3>Croisière Privée en Pointu Traditionnel</h3>
+          <p style="color: var(--azur-muted); font-size: 0.95rem;">
+            Navigation au crépuscule le long des calanques sauvages, accompagnée d'un panier gourmand de saison et de vins de Provence.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-icon">🌿</div>
+          <h3>Soins Holistiques sous les Oliviers</h3>
+          <p style="color: var(--azur-muted); font-size: 0.95rem;">
+            Rituels botaniques personnalisés aux huiles essentielles de lavande sauvage, romarin et fleur d'oranger du domaine.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-icon">🍷</div>
+          <h3>Dégustation Étoilée Privative</h3>
+          <p style="color: var(--azur-muted); font-size: 0.95rem;">
+            Dîner sur votre terrasse servi plat par plat par notre chef invité, accordé aux grands crus méditerranéens.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Conciergerie & Contact -->
+    <section id="contact" class="azur-section" style="background: #ffffff; text-align: center; border-top: 1px solid var(--azur-border);">
+      <div class="azur-section-header" style="margin-bottom: 2.5rem;">
+        <span class="azur-section-subtitle">Séjour & Réservations</span>
+        <h2 class="azur-section-title">Prendre Attache avec Notre Conciergerie</h2>
+        <p style="color: var(--azur-muted); max-width: 640px; margin: 0 auto 2.5rem; font-size: 1.05rem;">
+          Afin de garantir une quiétude absolue à nos résidents, chaque demande fait l'objet d'un échange préalable attentionné.
+        </p>
+        <a href="mailto:concierge@maison-azur-concept.fr" class="btn-azur-reserve">Formuler une demande de séjour</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- BARRE FLOTTANTE DOCK DE NAVIGATION RAPIDE GLOBALE -->
+  <nav class="global-floating-dock" aria-label="Navigation Rapide Galerie">
+    <a href="/" class="dock-item">
+      <span>🏛️</span>
+      <span>Galerie Hub</span>
+    </a>
+    <div class="dock-separator"></div>
+    <a href="/maison-azur" class="dock-item active">
+      <span>🌊</span>
+      <span>Maison Azur</span>
+    </a>
+    <a href="/maison-du-gout" class="dock-item">
+      <span>🍷</span>
+      <span>Maison du Goût</span>
+    </a>
+    <a href="/nova-industries" class="dock-item">
+      <span>⚡</span>
+      <span>NOVA Industries</span>
+    </a>
+  </nav>
+
+  <!-- Pied de page -->
+  <footer class="azur-footer">
+    <div class="azur-footer-container">
+      <p class="azur-footer-quote">
+        « Le luxe véritable ne se proclame pas : il se ressent dans le souffle du vent et la splendeur des calanques. »
+      </p>
+      <p class="azur-footer-note">
+        Maison Azur — Concept web design fictif pour portfolio professionnel. Aucune réservation réelle possible.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

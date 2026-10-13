@@ -1,0 +1,21 @@
+{
+  "name": "web-design-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio vitrine de design web présentant trois concepts de sites indépendants",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts"
+  },
+  "keywords": [
+    "portfolio",
+    "web-design",
+    "showcase",
+    "maison-azur",
+    "maison-du-gout",
+    "nova-industries"
+  ],
+  "author": "Freelance Web Designer",
+  "license": "MIT"
+}

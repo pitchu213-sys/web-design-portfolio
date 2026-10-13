@@ -1,0 +1,13 @@
+# Dépendances et caches
+node_modules/
+.bun/
+*.log
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environnement local
+.env
+.env.local
