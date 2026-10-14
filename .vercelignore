@@ -1,6 +1,4 @@
-# Ignorer les scripts de développement local sur Vercel
+# Ignorer les scripts et outils de développement local sur Vercel
 dev/
-views/
-public/
 *.log
 .bun/

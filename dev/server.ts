@@ -3,8 +3,6 @@ import { join, extname } from "path";
 
 const PORT = Number(process.env.PORT) || 3000;
 const ROOT_DIR = join(import.meta.dir, "..");
-const PUBLIC_DIR = join(ROOT_DIR, "public");
-const VIEWS_DIR = join(ROOT_DIR, "views");
 
 const MIME_TYPES: Record<string, string> = {
   ".html": "text/html; charset=utf-8",
@@ -28,20 +26,15 @@ const server = serve({
     const url = new URL(req.url);
     const pathname = url.pathname;
 
-    // Static asset handling (/css/..., /js/..., /images/...)
+    // Fichiers statiques
     if (
       pathname.startsWith("/css/") ||
       pathname.startsWith("/js/") ||
       pathname.startsWith("/images/") ||
       pathname === "/favicon.ico"
     ) {
-      let filePath = join(ROOT_DIR, pathname);
-      let file = Bun.file(filePath);
-      if (!(await file.exists())) {
-        filePath = join(PUBLIC_DIR, pathname);
-        file = Bun.file(filePath);
-      }
-
+      const filePath = join(ROOT_DIR, pathname);
+      const file = Bun.file(filePath);
       if (await file.exists()) {
         const ext = extname(filePath).toLowerCase();
         const contentType = MIME_TYPES[ext] || "application/octet-stream";
@@ -55,31 +48,23 @@ const server = serve({
       return new Response("Ressource non trouvée", { status: 404 });
     }
 
-    // Route matching for portfolio pages
+    // Routes HTML du portfolio
     let viewFile: string | null = null;
     const cleanPath = pathname.replace(/\/$/, "");
 
     switch (cleanPath) {
       case "":
       case "/":
-        viewFile = (await Bun.file(join(ROOT_DIR, "index.html")).exists())
-          ? join(ROOT_DIR, "index.html")
-          : join(VIEWS_DIR, "index.html");
+        viewFile = join(ROOT_DIR, "index.html");
         break;
       case "/maison-azur":
-        viewFile = (await Bun.file(join(ROOT_DIR, "maison-azur.html")).exists())
-          ? join(ROOT_DIR, "maison-azur.html")
-          : join(VIEWS_DIR, "maison-azur.html");
+        viewFile = join(ROOT_DIR, "maison-azur.html");
         break;
       case "/maison-du-gout":
-        viewFile = (await Bun.file(join(ROOT_DIR, "maison-du-gout.html")).exists())
-          ? join(ROOT_DIR, "maison-du-gout.html")
-          : join(VIEWS_DIR, "maison-du-gout.html");
+        viewFile = join(ROOT_DIR, "maison-du-gout.html");
         break;
       case "/nova-industries":
-        viewFile = (await Bun.file(join(ROOT_DIR, "nova-industries.html")).exists())
-          ? join(ROOT_DIR, "nova-industries.html")
-          : join(VIEWS_DIR, "nova-industries.html");
+        viewFile = join(ROOT_DIR, "nova-industries.html");
         break;
       default:
         viewFile = null;
@@ -96,7 +81,7 @@ const server = serve({
       }
     }
 
-    // 404 fallback page
+    // Page 404
     return new Response(
       `<!DOCTYPE html>
 <html lang="fr">
