@@ -18,30 +18,49 @@ const MIME_TYPES = {
   '.ttf': 'font/ttf',
 };
 
-function handler(req, res) {
-  const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-  const pathname = url.pathname.replace(/\/$/, '') || '/';
+function findFile(rel) {
+  if (!rel) return null;
+  const cleaned = rel.replace(/^\/+/, '');
 
-  let filePath = '';
-  if (pathname === '/') {
-    filePath = path.join(__dirname, 'index.html');
-  } else if (pathname === '/maison-azur') {
-    filePath = path.join(__dirname, 'maison-azur.html');
-  } else if (pathname === '/maison-du-gout') {
-    filePath = path.join(__dirname, 'maison-du-gout.html');
-  } else if (pathname === '/nova-industries') {
-    filePath = path.join(__dirname, 'nova-industries.html');
-  } else {
-    filePath = path.join(__dirname, pathname);
+  // 1. Essayer depuis process.cwd() (racine standard Lambda Vercel avec includeFiles)
+  const p1 = path.join(process.cwd(), cleaned);
+  if (fs.existsSync(p1) && fs.statSync(p1).isFile()) {
+    return p1;
   }
 
-  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-    const ext = path.extname(filePath).toLowerCase();
+  // 2. Essayer depuis __dirname (dossier du script)
+  const p2 = path.join(__dirname, cleaned);
+  if (fs.existsSync(p2) && fs.statSync(p2).isFile()) {
+    return p2;
+  }
+
+  return null;
+}
+
+function handler(req, res) {
+  const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  let pathname = url.pathname.replace(/\/$/, '') || '/';
+
+  let targetPath = null;
+  if (pathname === '/' || pathname === '') {
+    targetPath = findFile('index.html');
+  } else if (pathname === '/maison-azur' || pathname === '/maison-azur.html') {
+    targetPath = findFile('maison-azur.html');
+  } else if (pathname === '/maison-du-gout' || pathname === '/maison-du-gout.html') {
+    targetPath = findFile('maison-du-gout.html');
+  } else if (pathname === '/nova-industries' || pathname === '/nova-industries.html') {
+    targetPath = findFile('nova-industries.html');
+  } else {
+    targetPath = findFile(pathname);
+  }
+
+  if (targetPath) {
+    const ext = path.extname(targetPath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
     res.statusCode = 200;
     res.setHeader('Content-Type', contentType);
     res.setHeader('Cache-Control', 'public, max-age=3600');
-    return fs.createReadStream(filePath).pipe(res);
+    return fs.createReadStream(targetPath).pipe(res);
   }
 
   res.statusCode = 404;

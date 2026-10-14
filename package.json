@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "build": "node -e \"console.log('Build static assets ready')\"",
     "start": "node index.js",
     "dev": "bun --watch dev/server.ts"
   },
