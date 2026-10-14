@@ -35,8 +35,13 @@ const server = serve({
       pathname.startsWith("/images/") ||
       pathname === "/favicon.ico"
     ) {
-      const filePath = join(PUBLIC_DIR, pathname);
-      const file = Bun.file(filePath);
+      let filePath = join(ROOT_DIR, pathname);
+      let file = Bun.file(filePath);
+      if (!(await file.exists())) {
+        filePath = join(PUBLIC_DIR, pathname);
+        file = Bun.file(filePath);
+      }
+
       if (await file.exists()) {
         const ext = extname(filePath).toLowerCase();
         const contentType = MIME_TYPES[ext] || "application/octet-stream";
@@ -57,16 +62,24 @@ const server = serve({
     switch (cleanPath) {
       case "":
       case "/":
-        viewFile = join(VIEWS_DIR, "index.html");
+        viewFile = (await Bun.file(join(ROOT_DIR, "index.html")).exists())
+          ? join(ROOT_DIR, "index.html")
+          : join(VIEWS_DIR, "index.html");
         break;
       case "/maison-azur":
-        viewFile = join(VIEWS_DIR, "maison-azur.html");
+        viewFile = (await Bun.file(join(ROOT_DIR, "maison-azur.html")).exists())
+          ? join(ROOT_DIR, "maison-azur.html")
+          : join(VIEWS_DIR, "maison-azur.html");
         break;
       case "/maison-du-gout":
-        viewFile = join(VIEWS_DIR, "maison-du-gout.html");
+        viewFile = (await Bun.file(join(ROOT_DIR, "maison-du-gout.html")).exists())
+          ? join(ROOT_DIR, "maison-du-gout.html")
+          : join(VIEWS_DIR, "maison-du-gout.html");
         break;
       case "/nova-industries":
-        viewFile = join(VIEWS_DIR, "nova-industries.html");
+        viewFile = (await Bun.file(join(ROOT_DIR, "nova-industries.html")).exists())
+          ? join(ROOT_DIR, "nova-industries.html")
+          : join(VIEWS_DIR, "nova-industries.html");
         break;
       default:
         viewFile = null;

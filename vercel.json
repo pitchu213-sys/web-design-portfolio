@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/maison-azur", "destination": "/maison-azur.html" },
+    { "source": "/maison-du-gout", "destination": "/maison-du-gout.html" },
+    { "source": "/nova-industries", "destination": "/nova-industries.html" }
+  ]
+}

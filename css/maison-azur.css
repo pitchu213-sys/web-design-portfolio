@@ -1,0 +1,658 @@
+/* ==========================================================================
+   CONCEPT 1 : MAISON AZUR — LUXE RIVIERA HAUTE GAMME
+   Identité : Sérénité méditerranéenne, élégance balnéaire, luxe discret
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --azur-deep: #071724;
+  --azur-primary: #0f273d;
+  --azur-coastal: #245b91;
+  --azur-light: #eaf3fa;
+  --azur-sand: #f8f5f0;
+  --azur-card-bg: #ffffff;
+  --azur-gold: #c5a880;
+  --azur-gold-dark: #aa8a5e;
+  --azur-gold-glow: rgba(197, 168, 128, 0.35);
+  --azur-text: #192430;
+  --azur-muted: #576978;
+  --azur-border: rgba(15, 39, 61, 0.09);
+  
+  --font-azur-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-azur-sans: 'Plus Jakarta Sans', sans-serif;
+  
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.concept-azur {
+  background-color: var(--azur-sand);
+  color: var(--azur-text);
+  font-family: var(--font-azur-sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding-bottom: 90px;
+}
+
+/* BARRE FLOTTANTE DOCK DE NAVIGATION RAPIDE GLOBALE */
+.global-floating-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(7, 23, 36, 0.92);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  border-radius: 50px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(197, 168, 128, 0.2);
+}
+
+.dock-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.dock-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.dock-item.active {
+  background: rgba(197, 168, 128, 0.25);
+  color: #fff;
+  border: 1px solid var(--azur-gold);
+  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3);
+}
+
+.dock-separator {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Bandeau transversal retour portfolio */
+.portfolio-return-bar {
+  background: #05101a;
+  color: #fff;
+  padding: 0.65rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-family: var(--font-azur-sans);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  backdrop-filter: blur(12px);
+}
+
+.portfolio-return-bar a {
+  color: #7dd3fc;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.portfolio-return-bar a:hover {
+  color: #bae6fd;
+  transform: translateX(-3px);
+}
+
+.concept-badge-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #94a3b8;
+}
+
+.concept-badge-indicator strong {
+  color: var(--azur-gold);
+}
+
+/* Header Maison Azur */
+.azur-header {
+  position: sticky;
+  top: 39px;
+  z-index: 1000;
+  background: rgba(248, 245, 240, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--azur-border);
+  transition: var(--transition);
+}
+
+.azur-nav-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 1.35rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.azur-brand {
+  text-align: center;
+  text-decoration: none;
+  color: var(--azur-deep);
+}
+
+.azur-logo-title {
+  font-family: var(--font-azur-serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  line-height: 1;
+}
+
+.azur-logo-sub {
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--azur-gold-dark);
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 600;
+}
+
+.azur-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.azur-nav-link {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--azur-primary);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.35rem 0;
+  transition: var(--transition);
+}
+
+.azur-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--azur-gold);
+  transition: width 0.3s ease;
+}
+
+.azur-nav-link:hover::after,
+.azur-nav-link.active::after {
+  width: 100%;
+}
+
+.azur-nav-link:hover,
+.azur-nav-link.active {
+  color: var(--azur-gold-dark);
+}
+
+.btn-azur-reserve {
+  padding: 0.75rem 1.85rem;
+  background: var(--azur-deep);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-azur-reserve:hover {
+  background: var(--azur-coastal);
+  box-shadow: 0 6px 20px rgba(15, 39, 61, 0.25);
+}
+
+/* Hero Section */
+.azur-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 10rem;
+  background: linear-gradient(180deg, rgba(7, 23, 36, 0.45) 0%, rgba(7, 23, 36, 0.75) 100%),
+              url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+  color: #fff;
+}
+
+.azur-hero-content {
+  max-width: 920px;
+  position: relative;
+  z-index: 2;
+}
+
+.azur-hero-tagline {
+  font-size: 0.82rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #f6e5cd;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.azur-hero-title {
+  font-family: var(--font-azur-serif);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.75rem;
+}
+
+.azur-hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: #f7ede0;
+}
+
+.azur-hero-desc {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.azur-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 2.85rem;
+  background: var(--azur-gold);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.azur-hero-cta:hover {
+  background: var(--azur-gold-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px var(--azur-gold-glow);
+}
+
+/* Simulateur de Réservation Flottant */
+.booking-bar-wrapper {
+  max-width: 1140px;
+  margin: -4.5rem auto 0;
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem;
+}
+
+.booking-bar-card {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(7, 23, 36, 0.12);
+  border: 1px solid var(--azur-border);
+  padding: 1.75rem 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-right: 1px solid rgba(15, 39, 61, 0.08);
+  padding-right: 1.25rem;
+}
+
+.booking-field:last-of-type {
+  border-right: none;
+}
+
+.booking-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--azur-muted);
+  font-weight: 600;
+}
+
+.booking-input,
+.booking-select {
+  font-family: var(--font-azur-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--azur-deep);
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-check-availability {
+  padding: 0.95rem 1.85rem;
+  background: var(--azur-deep);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-azur-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-check-availability:hover {
+  background: var(--azur-gold-dark);
+}
+
+/* Simulation Résultat Réservation */
+.booking-feedback-msg {
+  grid-column: 1 / -1;
+  padding: 0.85rem 1.25rem;
+  background: rgba(36, 91, 145, 0.08);
+  border-left: 3px solid var(--azur-coastal);
+  font-size: 0.88rem;
+  color: var(--azur-deep);
+  display: none;
+  margin-top: 0.5rem;
+}
+
+/* Bandeau Spécifications Design */
+.concept-blueprint-bar {
+  background: #ffffff;
+  border-top: 1px solid var(--azur-border);
+  border-bottom: 1px solid var(--azur-border);
+  padding: 3rem 2rem;
+  margin-top: 5rem;
+}
+
+.blueprint-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.blueprint-box {
+  border-left: 2px solid var(--azur-gold);
+  padding-left: 1.5rem;
+}
+
+.blueprint-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--azur-muted);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.blueprint-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--azur-deep);
+}
+
+.blueprint-sub {
+  font-size: 0.82rem;
+  color: var(--azur-muted);
+}
+
+/* Sections Standards */
+.azur-section {
+  padding: 7rem 2rem;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.azur-section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4.5rem;
+}
+
+.azur-section-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--azur-gold-dark);
+  margin-bottom: 0.85rem;
+  display: block;
+  font-weight: 600;
+}
+
+.azur-section-title {
+  font-family: var(--font-azur-serif);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  color: var(--azur-deep);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+/* Grille des Suites */
+.azur-grid-suites {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.suite-card {
+  background: var(--azur-card-bg);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(7, 23, 36, 0.05);
+  transition: var(--transition);
+  border: 1px solid var(--azur-border);
+}
+
+.suite-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(7, 23, 36, 0.1);
+}
+
+.suite-img-container {
+  height: 310px;
+  overflow: hidden;
+  position: relative;
+}
+
+.suite-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suite-card:hover .suite-img {
+  transform: scale(1.06);
+}
+
+.suite-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(7, 23, 36, 0.85);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.suite-body {
+  padding: 2.25rem;
+}
+
+.suite-title {
+  font-family: var(--font-azur-serif);
+  font-size: 1.85rem;
+  color: var(--azur-deep);
+  margin-bottom: 0.65rem;
+}
+
+.suite-desc {
+  font-size: 0.92rem;
+  color: var(--azur-muted);
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.suite-amenities {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.amenity-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--azur-light);
+  color: var(--azur-primary);
+  border-radius: 2px;
+}
+
+.suite-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--azur-border);
+  padding-top: 1.25rem;
+  font-size: 0.88rem;
+}
+
+.suite-price {
+  font-weight: 700;
+  color: var(--azur-deep);
+  font-size: 1.05rem;
+}
+
+/* Grille des Expériences */
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.experience-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border: 1px solid var(--azur-border);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--azur-gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.exp-icon {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: var(--azur-gold);
+}
+
+.experience-card h3 {
+  font-family: var(--font-azur-serif);
+  font-size: 1.6rem;
+  color: var(--azur-deep);
+  margin-bottom: 0.75rem;
+}
+
+/* Pied de page Azur */
+.azur-footer {
+  background: var(--azur-deep);
+  color: #fff;
+  padding: 6rem 2rem 3rem;
+}
+
+.azur-footer-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.azur-footer-quote {
+  font-family: var(--font-azur-serif);
+  font-size: 2.2rem;
+  font-style: italic;
+  max-width: 780px;
+  margin: 0 auto 3rem;
+  color: #e6edf3;
+  line-height: 1.35;
+}
+
+.azur-footer-note {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .booking-bar-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .blueprint-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .azur-grid-suites,
+  .experiences-grid {
+    grid-template-columns: 1fr;
+  }
+  .azur-nav-menu {
+    display: none;
+  }
+}
