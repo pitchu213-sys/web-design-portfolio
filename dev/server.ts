@@ -2,7 +2,7 @@ import { serve } from "bun";
 import { join, extname } from "path";
 
 const PORT = Number(process.env.PORT) || 3000;
-const ROOT_DIR = import.meta.dir;
+const ROOT_DIR = join(import.meta.dir, "..");
 const PUBLIC_DIR = join(ROOT_DIR, "public");
 const VIEWS_DIR = join(ROOT_DIR, "views");
 

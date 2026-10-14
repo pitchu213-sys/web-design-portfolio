@@ -5,17 +5,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --watch server.ts",
-    "serve": "bun server.ts"
-  },
-  "keywords": [
-    "portfolio",
-    "web-design",
-    "showcase",
-    "maison-azur",
-    "maison-du-gout",
-    "nova-industries"
-  ],
-  "author": "Freelance Web Designer",
-  "license": "MIT"
+    "dev": "bun --watch dev/server.ts"
+  }
 }
